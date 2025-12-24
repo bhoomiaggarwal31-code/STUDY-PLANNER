@@ -98,7 +98,13 @@ nav a:hover::after {
     width: 100%;
 }
 
+nav a.active {
+    color: #1abc9c;
+}
 
+nav a.active::after {
+    width: 100%;
+}
 
 footer {
     text-align: center;
