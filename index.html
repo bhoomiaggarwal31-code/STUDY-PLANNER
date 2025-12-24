@@ -3,85 +3,105 @@
 <head>
     <title>Study Planner</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            margin: 40px;
-        }
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #eef1f5;
+        margin: 0;
+        padding: 0;
+     }
 
-        h1 {
-            color: #2c3e50;
-        }
+      .container {
+          width: 80%;
+        max-width: 900px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); 
 
-        h2 {
-            color: #34495e;
-        }
+      }
 
-        p {
-            font-size: 16px;
-        }
+      h1 {
+           text-align: center;
+           color: #2c3e50; 
+      }
 
-        table {
-            border-collapse: collapse;
-            width: 60%;
-            background-color: #ffffff;
-        }
+      h2 {
+          color: #34495e;
+          margin-top: 30px;
+      }
 
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
+      p {
+          text-align: center;
+          font-size: 16px;
+      }
 
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 15px;
+      }
 
-        ul {
-            background-color: #ffffff;
-            width: 40%;
-            padding: 15px;
-        }
+      th, td {
+          border: 1px solid #ddd;
+          padding: 12px;
+          text-align: center;
+      }
 
-        li {
-            margin: 5px 0;
-        }
-    </style>
+      th {
+          background-color: #2c3e50;
+          color: white;
+      }
+
+      tr:hover {
+          background-color: #f2f2f2;
+      }
+
+      ul {
+          margin-top: 10px;
+          padding-left: 20px;
+      }
+
+      li {
+          margin: 8px 0;
+      }
+  </style>
+
 </head>
 
 <body>
+    <div class="container">
 
-    <h1>My Study Planner</h1>
-    <p>This planner helps me organize my daily study schedule.</p>
+        <h1>My Study Planner</h1>
+        <p>This planner helps me organize my daily study schedule.</p>
 
-    <h2>Daily Schedule</h2>
+        <h2>Daily Schedule</h2>
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Subject</th>
+            </tr>
+            <tr>
+                <td>6:00 – 7:00 AM</td>
+                <td>Mathematics</td>
+            </tr>
+            <tr>
+                <td>7:00 – 8:00 AM</td>
+                <td>Programming</td>
+            </tr>
+            <tr>
+                <td>6:00 – 7:00 PM</td>
+                <td>Electronics</td>
+            </tr>
+        </table>
 
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>Time</th>
-            <th>Subject</th>
-        </tr>
-        <tr>
-            <td>6:00 – 7:00 AM</td>
-            <td>Mathematics</td>
-        </tr>
-        <tr>
-            <td>7:00 – 8:00 AM</td>
-            <td>Programming</td>
-        </tr>
-        <tr>
-            <td>6:00 – 7:00 PM</td>
-            <td>Electronics</td>
-        </tr>
-    </table>
+        <h2>Goals</h2>
+        <ul>
+            <li>Revise daily</li>
+            <li>Practice coding</li>
+            <li>Prepare for exams</li>
+        </ul>
 
-    <h2>Goals</h2>
-    <ul>
-        <li>Revise daily</li>
-        <li>Practice coding</li>
-        <li>Prepare for exams</li>
-    </ul>
-
+    </div>
 </body>
 </html>
