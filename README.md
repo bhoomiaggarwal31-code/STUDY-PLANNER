@@ -40,7 +40,11 @@ It helps students organize their daily study schedule with a modern UI and dark 
 ├── index.html
 ├── css
 │ └── style.css
-└── assets
+assets/
+│ │── web-page.jpeg
+  │── light-mode.png
+  └── dark-mode.png
+
 
 
 ---
