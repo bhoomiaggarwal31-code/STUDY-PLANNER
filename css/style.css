@@ -232,3 +232,27 @@ body.dark .social-links a {
     padding: 8px;
     border-radius: 4px;
 }
+/* Dark mode task section */
+body.dark #tasks {
+    color: #eaeaea;
+}
+
+body.dark .task-input input {
+    background-color: #3a3a3a;
+    color: #eaeaea;
+    border: 1px solid #555;
+}
+
+body.dark .task-input input::placeholder {
+    color: #bbbbbb;
+}
+
+body.dark .task-input button {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+body.dark #taskList li {
+    background-color: #3a3a3a;
+    color: #eaeaea;
+}
