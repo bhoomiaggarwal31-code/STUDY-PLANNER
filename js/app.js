@@ -28,26 +28,26 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 function renderTasks() {
     taskList.innerHTML = "";
-    tasks.forEach((task) => {
+
+    tasks.forEach((task, index) => {
         const li = document.createElement("li");
-        li.textContent = task;
+        li.className = "task-item";
+
+        const span = document.createElement("span");
+        span.textContent = task;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+
+        deleteBtn.addEventListener("click", () => {
+            tasks.splice(index, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        });
+
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
         taskList.appendChild(li);
     });
 }
 
-renderTasks();
-
-// Add new task
-addTaskBtn.addEventListener("click", () => {
-    const task = taskInput.value.trim();
-
-    if (task === "") {
-        alert("Please enter a task");
-        return;
-    }
-
-    tasks.push(task);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    taskInput.value = "";
-    renderTasks();
-});
