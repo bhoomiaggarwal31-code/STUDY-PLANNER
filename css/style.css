@@ -256,3 +256,30 @@ body.dark #taskList li {
     background-color: #3a3a3a;
     color: #eaeaea;
 }
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f6f8;
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.task-item button {
+    border: none;
+    background: transparent;
+    color: #e74c3c;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Dark mode */
+body.dark .task-item {
+    background-color: #3a3a3a;
+}
+
+body.dark .task-item button {
+    color: #ff6b6b;
+}
