@@ -9,6 +9,15 @@ It helps students organize their daily study schedule with a modern UI and dark 
 👉 https://bhoomiaggarwal31-code.github.io/STUDY-PLANNER/
 
 ---
+## 📸 Screenshots
+
+### Desktop View
+![Desktop Light Mode](assets/web-page.jpeg)
+
+
+### Mobile View
+![Mobile Light Mode](assets/light-mode.png)
+![Mobile Dark Mode](assets/dark-mode.png)
 
 ## ✨ Features
 - 📅 Daily study schedule table  
