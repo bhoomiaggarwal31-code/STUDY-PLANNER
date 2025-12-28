@@ -284,3 +284,13 @@ body.dark .task-item button {
     color: #ff6b6b;
 }
 
+.task-item.done span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Dark mode */
+body.dark .task-item.done span {
+    opacity: 0.5;
+}
+
