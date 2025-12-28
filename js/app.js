@@ -36,44 +36,53 @@ document.addEventListener("DOMContentLoaded", () => {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
     function renderTasks() {
-        taskList.innerHTML = "";
+    taskList.innerHTML = "";
 
-        tasks.forEach((task, index) => {
-            const li = document.createElement("li");
-            li.className = "task-item";
+    tasks.forEach((taskObj, index) => {
+        const li = document.createElement("li");
+        li.className = "task-item";
+        if (taskObj.done) li.classList.add("done");
 
-            const span = document.createElement("span");
-            span.textContent = task;
+        const span = document.createElement("span");
+        span.textContent = taskObj.text;
 
-            const deleteBtn = document.createElement("button");
-            deleteBtn.textContent = "❌";
-
-            deleteBtn.addEventListener("click", () => {
-                tasks.splice(index, 1);
-                localStorage.setItem("tasks", JSON.stringify(tasks));
-                renderTasks();
-            });
-
-            li.appendChild(span);
-            li.appendChild(deleteBtn);
-            taskList.appendChild(li);
+        // Toggle done
+        span.addEventListener("click", () => {
+            taskObj.done = !taskObj.done;
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
         });
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+
+        deleteBtn.addEventListener("click", () => {
+            tasks.splice(index, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        });
+
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        taskList.appendChild(li);
+    });
+}
+
+addTaskBtn.addEventListener("click", () => {
+    const taskText = taskInput.value.trim();
+
+    if (taskText === "") {
+        alert("Please enter a task");
+        return;
     }
 
-    renderTasks();
-
-    addTaskBtn.addEventListener("click", () => {
-        const task = taskInput.value.trim();
-
-        if (task === "") {
-            alert("Please enter a task");
-            return;
-        }
-
-        tasks.push(task);
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-        taskInput.value = "";
-        renderTasks();
+    tasks.push({
+        text: taskText,
+        done: false
     });
 
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    taskInput.value = "";
+    renderTasks();
 });
+
