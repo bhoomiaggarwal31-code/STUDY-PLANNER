@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 }
 
-addTaskBtn.addEventListener("click", () => {
+    addTaskBtn.addEventListener("click", () => {
     const taskText = taskInput.value.trim();
 
     if (taskText === "") {
@@ -86,3 +86,4 @@ addTaskBtn.addEventListener("click", () => {
     renderTasks();
 });
 
+});
