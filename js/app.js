@@ -27,6 +27,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const addTaskBtn = document.getElementById("addTaskBtn");
     const taskList = document.getElementById("taskList");
 
+    const hideCompletedToggle = document.getElementById("hideCompletedToggle");
+    let hideCompleted = JSON.parse(localStorage.getItem("hideCompleted")) || false;
+    if (hideCompletedToggle) {
+    hideCompletedToggle.checked = hideCompleted;
+
+    hideCompletedToggle.addEventListener("change", () => {
+        hideCompleted = hideCompletedToggle.checked;
+        localStorage.setItem("hideCompleted", JSON.stringify(hideCompleted));
+        renderTasks();
+    });
+}
+
+
+
+
+
+
     // ❗ If task section doesn't exist, STOP safely
     if (!taskInput || !addTaskBtn || !taskList) {
         console.warn("Task elements not found, skipping task logic.");
@@ -39,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     taskList.innerHTML = "";
 
     tasks.forEach((taskObj, index) => {
+        if (hideCompleted && taskObj.done) return;
         const li = document.createElement("li");
         li.className = "task-item";
         if (taskObj.done) li.classList.add("done");
