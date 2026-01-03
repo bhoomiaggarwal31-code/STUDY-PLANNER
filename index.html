@@ -38,25 +38,18 @@
 
          </header>
 
-        <h2 id="schedule">Daily Schedule</h2>
-        <table>
-            <tr>
-                <th>Time</th>
-                <th>Subject</th>
-            </tr>
-            <tr>
-                <td>6:00 – 7:00 AM</td>
-                <td>Mathematics</td>
-            </tr>
-            <tr>
-                <td>7:00 – 8:00 AM</td>
-                <td>Programming</td>
-            </tr>
-            <tr>
-                <td>6:00 – 7:00 PM</td>
-                <td>Electronics</td>
-            </tr>
-        </table>
+        <section id="schedule">
+    <h2>Daily Schedule</h2>
+
+    <div class="schedule-input">
+        <input type="time" id="startTime">
+        <input type="time" id="endTime">
+        <input type="text" id="subjectInput" placeholder="What will you study?">
+        <button id="addScheduleBtn">Add</button>
+    </div>
+
+    <ul id="scheduleList"></ul>
+</section>
 
         <h2 id="goals">Goals</h2>
         <ul>
