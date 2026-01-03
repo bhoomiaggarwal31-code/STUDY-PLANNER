@@ -293,4 +293,12 @@ body.dark .task-item button {
 body.dark .task-item.done span {
     opacity: 0.5;
 }
+.task-toggle {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.task-toggle input {
+    margin-right: 6px;
+}
 
