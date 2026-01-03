@@ -118,32 +118,24 @@ let schedule = JSON.parse(localStorage.getItem("schedule")) || [];
 function renderSchedule() {
     scheduleList.innerHTML = "";
 
-    schedule.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.textContent = `${item.start} – ${item.end} : ${item.subject}`;
-        scheduleList.appendChild(li);
+    schedule.forEach((item) => {
+        const row = document.createElement("tr");
+
+        const startTd = document.createElement("td");
+        startTd.textContent = item.start;
+
+        const endTd = document.createElement("td");
+        endTd.textContent = item.end;
+
+        const subjectTd = document.createElement("td");
+        subjectTd.textContent = item.subject;
+
+        row.appendChild(startTd);
+        row.appendChild(endTd);
+        row.appendChild(subjectTd);
+
+        scheduleList.appendChild(row);
     });
 }
 
-renderSchedule();
-
-addScheduleBtn.addEventListener("click", () => {
-    const start = startTimeInput.value;
-    const end = endTimeInput.value;
-    const subject = subjectInput.value.trim();
-
-    if (!start || !end || subject === "") {
-        alert("Please fill all schedule fields");
-        return;
-    }
-
-    schedule.push({ start, end, subject });
-    localStorage.setItem("schedule", JSON.stringify(schedule));
-
-    startTimeInput.value = "";
-    endTimeInput.value = "";
-    subjectInput.value = "";
-
-    renderSchedule();
-});
 
