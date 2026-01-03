@@ -301,4 +301,28 @@ body.dark .task-item.done span {
 .task-toggle input {
     margin-right: 6px;
 }
+.schedule-input {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.schedule-input input,
+.schedule-input button {
+    padding: 8px;
+    font-size: 14px;
+}
+
+#scheduleList li {
+    background: #f4f6f8;
+    margin: 6px 0;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Dark mode */
+body.dark #scheduleList li {
+    background-color: #3a3a3a;
+}
 
