@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     taskInput.value = "";
     renderTasks();
 });
+}
 /* ---------- DAILY SCHEDULE ---------- */
 const startTimeInput = document.getElementById("startTime");
 const endTimeInput = document.getElementById("endTime");
