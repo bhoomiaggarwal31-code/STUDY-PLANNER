@@ -103,9 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     taskInput.value = "";
     renderTasks();
 });
-
-});
-
 /* ---------- DAILY SCHEDULE ---------- */
 const startTimeInput = document.getElementById("startTime");
 const endTimeInput = document.getElementById("endTime");
@@ -113,29 +110,54 @@ const subjectInput = document.getElementById("subjectInput");
 const addScheduleBtn = document.getElementById("addScheduleBtn");
 const scheduleList = document.getElementById("scheduleList");
 
-let schedule = JSON.parse(localStorage.getItem("schedule")) || [];
+// safety check
+if (startTimeInput && endTimeInput && subjectInput && addScheduleBtn && scheduleList) {
 
-function renderSchedule() {
-    scheduleList.innerHTML = "";
+    let schedule = JSON.parse(localStorage.getItem("schedule")) || [];
 
-    schedule.forEach((item) => {
-        const row = document.createElement("tr");
+    function renderSchedule() {
+        scheduleList.innerHTML = "";
 
-        const startTd = document.createElement("td");
-        startTd.textContent = item.start;
+        schedule.forEach((item) => {
+            const row = document.createElement("tr");
 
-        const endTd = document.createElement("td");
-        endTd.textContent = item.end;
+            row.innerHTML = `
+                <td>${item.start}</td>
+                <td>${item.end}</td>
+                <td>${item.subject}</td>
+            `;
 
-        const subjectTd = document.createElement("td");
-        subjectTd.textContent = item.subject;
+            scheduleList.appendChild(row);
+        });
+    }
 
-        row.appendChild(startTd);
-        row.appendChild(endTd);
-        row.appendChild(subjectTd);
+    renderSchedule();
 
-        scheduleList.appendChild(row);
+    addScheduleBtn.addEventListener("click", () => {
+        const start = startTimeInput.value;
+        const end = endTimeInput.value;
+        const subject = subjectInput.value.trim();
+
+        if (!start || !end || subject === "") {
+            alert("Please fill all schedule fields");
+            return;
+        }
+
+        schedule.push({ start, end, subject });
+        localStorage.setItem("schedule", JSON.stringify(schedule));
+
+        startTimeInput.value = "";
+        endTimeInput.value = "";
+        subjectInput.value = "";
+        schedule.sort((a, b) => a.start.localeCompare(b.start));
+        renderSchedule();
     });
+
 }
+
+
+});
+
+
 
 
